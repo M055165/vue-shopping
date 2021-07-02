@@ -128,12 +128,14 @@ export default {
       });
     },
     turnproduct(id, category) {
-      this.$router.push({
+      this.$router.replace({
         name: "frontProductIn",
         query: {
           id,
           category,
         },
+      }).catch((err)=>{
+        this.$router.go(0)
       });
     },
     addtoFavorite(item) {

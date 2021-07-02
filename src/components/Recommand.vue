@@ -5,10 +5,11 @@
       <div class="row relate-card">
         <div class="col-md-4" v-for="(item, index) in products" :key="index" v-if="index<3">
           <div class="card-box">
-            <div class="card-pic" :style="{backgroundImage: `url(${ item.image })`}"></div>
+            <div class="card-pic" :style="{backgroundImage: `url(${ item.image })`}"  @click="turnproduct(item.id, item.category)
+"></div>
             <div class="card-text">
               <h3 class="relate-type">{{item.category}}</h3>
-              <h2 class="relate-name">{{item.title}}</h2>
+              <h2 class="relate-name" @click="turnproduct(item.id, item.category)">{{item.title}}</h2>
               <del class="relate-Oprice">{{item.origin_price}}</del>
               <div class="d-flex justify-content-between">
                 <h3 class="relate-Nprice d-inline-block">{{item.price}}</h3>
@@ -22,7 +23,6 @@
   </div>
 </template>
 
- 
 <script>
 export default {
    props:['recommandList'],
@@ -41,6 +41,17 @@ export default {
           return findproduct === item.category;
         });
       });
+    },
+      turnproduct(id, category) {
+      this.$router.push({
+        name: "frontProductIn",
+        query: {
+          id,
+          category,
+        },
+      }).catch((err)=>{
+        this.$router.go(0)
+      });;
     },
    },
    created() {

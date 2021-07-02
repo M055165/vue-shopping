@@ -27,13 +27,13 @@
               <i class="fas fa-times menu-close"></i>
             </li>
             <li>
-              <a href="/">首頁</a>
+              <router-link to="/">首頁</router-link>
             </li>
             <li>
               <a href="#">最新資訊</a>
             </li>
             <li>
-              <a href="/frontproduct">商品</a>
+              <router-link to="/frontproduct">商品</router-link>
             </li>
           </ul>
         </div>

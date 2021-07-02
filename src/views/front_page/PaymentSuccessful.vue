@@ -34,7 +34,7 @@
           <li>付款時間人&nbsp;:&nbsp;&nbsp;{{order.create_at |date}}</li>
         </ul>
       </div>
-      <a href="/frontproducts" class="btn btn-success success-btn">繼續購物</a>
+      <router-link to="/frontproducts" class="btn btn-success success-btn">繼續購物</router-link>
     </div>
   </div>
 </template>
