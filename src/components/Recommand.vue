@@ -43,7 +43,7 @@ export default {
       });
     },
       turnproduct(id, category) {
-      this.$router.push({
+      this.$router.replace({
         name: "frontProductIn",
         query: {
           id,

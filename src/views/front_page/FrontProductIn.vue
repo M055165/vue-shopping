@@ -41,9 +41,9 @@
                 <p class="text-danger">面對高齡化滲透的加劇，在中央政府的領導下，雖相繼推出一些相應措施，但長期而言，仍需要各縣市政府及相關單位、民間團體等，甚至是每位民眾肩負重任，一起努力，共同迎接高齡社會的到來。</p>
                 <div class="buyproduct mt-3">
                   <div class="select_quantity">
-                    <button class="minus" >-</button>
-                    <input class="quantity" type="number" placeholder="1" min="1" max="100" />
-                    <button class="plus" >+</button>
+                    <button class="minus" @click="plus(-1)" >-</button>
+                    <input class="quantity" type="number" value="1" min="1" max="100" />
+                    <button class="plus" @click="plus(1)" >+</button>
                   </div>
                   <a href="#" class="btn btn-green">加到購物車</a>
                 </div>
@@ -134,6 +134,15 @@ export default {
         vm.isLoading = false;
       });
     },
+    plus(index){
+      let quantityDom = document.getElementsByClassName('quantity')
+      let quantity = parseInt(quantityDom[0].value)+index
+      console.log(quantity)
+      if(quantity<1){
+        quantity = 1
+      }
+      quantityDom[0].value = quantity
+    }
   },
   created() {
     const vm = this;

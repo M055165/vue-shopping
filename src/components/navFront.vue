@@ -15,10 +15,10 @@
             </div>
           </a>
           <div class="logo-text">
-            <a href="/">
-              <P>Give More</P>
+            <router-link to="/">
+            <P>Give More</P>
               <span>Love and Patient</span>
-            </a>
+            </router-link>
           </div>
         </div>
         <div class="list" :class="{'left0':burgerFlag}">
@@ -55,7 +55,7 @@
                   class=" text-center mt-2 mb-3 font-weight-bold"
                   v-if="Favorite!== undefined && Favorite.length ==0"
                 >－&nbsp;還沒有收藏的商品喔&nbsp;－</div>
-                <a href="./frontproduct" class="btn btn-primary w-100"  v-if="Favorite!== undefined && Favorite.length ==0">購物去</a>
+                <router-link to="/frontproduct" class="btn btn-primary w-100"  v-if="Favorite!== undefined && Favorite.length ==0">購物去</router-link>
                 <div class="table-wrapper" v-if="Favorite!== undefined && Favorite.length > 0">
                   <table>
                     <tbody>
@@ -101,7 +101,7 @@
                   class="text-center mt-2 mb-3 font-weight-bold"
                   v-if="Cart.carts !== undefined && Cart.carts.length === 0"
                 >－&nbsp;還沒有收藏的商品喔&nbsp;－</div>
-                <a href="./frontproduct" class="btn btn-primary w-100"  v-if="Cart.carts !== undefined && Cart.carts.length === 0">購物去</a>
+                <router-link to="/frontproduct" class="btn btn-primary w-100"  v-if="Cart.carts !== undefined && Cart.carts.length === 0" @click.prevent="likeModalClick">購物去</router-link>
                 <div class="table-wrapper" v-if="Cart.carts !== undefined && Cart.carts.length > 0">
                   <table>
                     <tbody>
@@ -123,14 +123,15 @@
                   <span>總計</span>
                   <small>{{Cart.total | currency}}</small>
                 </div>
-                <a href="frontcart" class="btn btn-green" v-if="Cart.carts !== undefined && Cart.carts.length >0">結帳</a>
+                <router-link to="/frontcart" class="btn btn-green" v-if="Cart.carts !== undefined && Cart.carts.length >0">結帳</router-link>
               </div>
             </div>
           </li>
           <li class="nav-item">
-            <a href="/login" class="nav-link text-white mouseMoving">
-              <a class="fas fa-sign-in-alt fa-2x"></a>
-            </a>
+            <router-link to="/login" class="nav-link text-white mouseMoving">
+                 <a class="fas fa-sign-in-alt fa-2x"></a>
+            </router-link>
+           
           </li>
         </ul>
       </div>

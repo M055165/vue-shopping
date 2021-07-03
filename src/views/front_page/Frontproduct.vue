@@ -134,9 +134,7 @@ export default {
           id,
           category,
         },
-      }).catch((err)=>{
-        this.$router.go(0)
-      });
+      })
     },
     addtoFavorite(item) {
       const vm = this;

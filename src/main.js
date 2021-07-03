@@ -26,6 +26,16 @@ Vue.filter("currency", currencyFilter);
 Vue.filter("date", date);
 Vue.component("Loading", Loading);
 Vue.use(VueAwesomeSwiper);
+import VueRouter from "vue-router";
+Vue.use(VueRouter);
+
+// Handle navigation duplication for router push (Globally)
+
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((error) => {
+  });
+};
 
 new Vue({
   router,
